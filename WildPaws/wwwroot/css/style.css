@@ -1,7 +1,7 @@
 /********** Template CSS **********/
 :root {
-    --primary: #7AB730;
-    --secondary: #FFD33C;
+    --primary: #708160;
+    --secondary: #d8C593;
     --light: #F3F3F3;
     --dark: #212121;
 }
@@ -76,7 +76,7 @@
 
 .navbar-light .navbar-nav .nav-link:hover,
 .navbar-light .navbar-nav .nav-link.active {
-    color: var(--primary);
+    color: #708160;
 }
 
 @media (min-width: 992px) {
@@ -87,7 +87,7 @@
         height: 7px;
         top: -4px;
         left: 50%;
-        background: var(--primary);
+        background: #708160;
         transition: .5s;
     }
 

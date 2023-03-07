@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
+using WildPaws.Core.Constants;
 using WildPaws.Models;
 
 namespace WildPaws.Controllers
@@ -15,6 +16,7 @@ namespace WildPaws.Controllers
 
         public IActionResult Index()
         {
+            ViewData[MessageConstant.ErrorMessage] = "Счуп!";
             return View();
         }
 

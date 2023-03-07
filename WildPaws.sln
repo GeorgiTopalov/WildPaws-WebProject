@@ -5,6 +5,10 @@ VisualStudioVersion = 17.0.32014.148
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WildPaws", "WildPaws\WildPaws.csproj", "{BBA8499A-C8FF-418C-B345-F7D98988B2AB}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WildPaws.Core", "WildPaws.Core\WildPaws.Core.csproj", "{2EA4E1F0-BE5D-4AAC-ADBB-7D217D3B3578}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WildPaws.Infrastructure", "WildPaws.Infrastructure\WildPaws.Infrastructure.csproj", "{76D60A34-E219-4F61-AE6A-F92A3893B0EF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +19,14 @@ Global
 		{BBA8499A-C8FF-418C-B345-F7D98988B2AB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BBA8499A-C8FF-418C-B345-F7D98988B2AB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BBA8499A-C8FF-418C-B345-F7D98988B2AB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2EA4E1F0-BE5D-4AAC-ADBB-7D217D3B3578}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2EA4E1F0-BE5D-4AAC-ADBB-7D217D3B3578}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2EA4E1F0-BE5D-4AAC-ADBB-7D217D3B3578}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2EA4E1F0-BE5D-4AAC-ADBB-7D217D3B3578}.Release|Any CPU.Build.0 = Release|Any CPU
+		{76D60A34-E219-4F61-AE6A-F92A3893B0EF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{76D60A34-E219-4F61-AE6A-F92A3893B0EF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{76D60A34-E219-4F61-AE6A-F92A3893B0EF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{76D60A34-E219-4F61-AE6A-F92A3893B0EF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
