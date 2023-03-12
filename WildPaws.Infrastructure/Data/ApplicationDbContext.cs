@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
-namespace WildPaws.Data
+namespace WildPaws.Infrastructure.Data
 {
     public class ApplicationDbContext : IdentityDbContext
     {

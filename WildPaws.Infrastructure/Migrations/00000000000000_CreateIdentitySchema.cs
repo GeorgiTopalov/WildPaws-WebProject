@@ -2,7 +2,7 @@
 using Microsoft.EntityFrameworkCore.Migrations;
 using System;
 
-namespace WildPaws.Data.Migrations
+namespace WildPaws.Infrastructure.Data.Migrations
 {
     public partial class CreateIdentitySchema : Migration
     {
