@@ -11,7 +11,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Extensions.Logging;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Logging;
-using WildPaws.Areas.Identity.Data;
+using WildPaws.Infrastructure.Data.Identity;
 
 namespace WildPaws.Areas.Identity.Pages.Account
 {

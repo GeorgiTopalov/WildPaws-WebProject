@@ -12,7 +12,7 @@ using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.WebUtilities;
-using WildPaws.Areas.Identity.Data;
+using WildPaws.Infrastructure.Data.Identity;
 
 namespace WildPaws.Areas.Identity.Pages.Account.Manage
 {

@@ -1,4 +1,5 @@
-﻿@inject SignInManager<WildPawsUser> SignInManager
+﻿@using WildPaws.Infrastructure.Data.Identity
+@inject SignInManager<WildPawsUser> SignInManager
 @{
     var hasExternalLogins = (await SignInManager.GetExternalAuthenticationSchemesAsync()).Any();
 }

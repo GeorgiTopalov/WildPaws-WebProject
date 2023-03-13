@@ -4,6 +4,8 @@
 
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using WildPaws.Infrastructure.Data.Identity;
+
 
 namespace WildPaws.Areas.Identity.Pages.Account
 {
