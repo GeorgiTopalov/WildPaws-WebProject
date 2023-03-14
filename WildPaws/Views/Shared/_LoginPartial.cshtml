@@ -1,6 +1,7 @@
 ﻿@using Microsoft.AspNetCore.Identity
-@inject SignInManager<IdentityUser> SignInManager
-@inject UserManager<IdentityUser> UserManager
+@using WildPaws.Infrastructure.Data.Identity
+@inject SignInManager<WildPawsUser> SignInManager
+@inject UserManager<WildPawsUser> UserManager
 
 
     @if (SignInManager.IsSignedIn(User))

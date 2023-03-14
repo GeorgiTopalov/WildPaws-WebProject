@@ -29,7 +29,7 @@
     <link href="~/css/style.css" rel="stylesheet">
 
 
-    <link rel="stylesheet" href="~/pluggins/toastr/toastr.min.css" />
+    <link rel="stylesheet" href="~/plugins/toastr/toastr.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     @await RenderSectionAsync("Head", false)
 </head>
@@ -41,7 +41,7 @@
     <!-- Navbar End -->
    
 
-    @RenderBody();
+    @RenderBody()
 
     <!-- Footer Start -->
     <div class="container-fluid bg-light mt-5 py-5">
@@ -135,8 +135,8 @@
     <script src="~/js/main.js"></script>
 
       <!-- Pluggins -->
-    <script src="~/pluggins/toastr/toastr.min.js"></script>
-    <script src="~/pluggins/bootstrap/js/bootstrap.js"></script>
+    <script src="~/plugins/toastr/toastr.min.js"></script>
+    <script src="~/plugins/bootstrap/js/bootstrap.js"></script>
     
     <partial name="_UserMessages"/>
     @await RenderSectionAsync("Scripts", false)
