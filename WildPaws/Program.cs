@@ -11,9 +11,12 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseSqlServer(connectionString));
 builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 
-builder.Services.AddDefaultIdentity<WildPawsUser>(options => options.SignIn.RequireConfirmedAccount = true)
+builder.Services.AddDefaultIdentity<WildPawsUser>(options =>
+{
+    options.SignIn.RequireConfirmedAccount = true;
+})
+    .AddRoles<IdentityRole>()
     .AddEntityFrameworkStores<ApplicationDbContext>();
-builder.Services.AddControllersWithViews();
 
 builder.Services.AddAuthentication()
     .AddFacebook(options =>
@@ -21,6 +24,8 @@ builder.Services.AddAuthentication()
         options.AppId = builder.Configuration.GetValue<string>("Facebook:AppId");
         options.AppSecret = builder.Configuration.GetValue<string>("Facebook:AppSecret");
     });
+
+builder.Services.AddControllersWithViews();
 
 var app = builder.Build();
 
