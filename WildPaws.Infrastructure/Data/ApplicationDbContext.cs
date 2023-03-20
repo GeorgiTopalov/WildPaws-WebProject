@@ -18,5 +18,15 @@ namespace WildPaws.Infrastructure.Data
             // For example, you can rename the ASP.NET Identity table names and more.
             // Add your customizations after calling base.OnModelCreating(builder);
         }
+
+
+        public DbSet<Recipe> Recipes { get; set; }
+        public DbSet<Ingredient> Ingredients { get; set; }
+        public DbSet<Address> Addresses { get; set; }
+        public DbSet<Breed> Breeds { get; set; }
+        public DbSet<Customer> Customers { get; set; }
+        public DbSet<Pet> Pets { get; set; }
+        public DbSet<Subscription> Subscriptions { get; set; }
+        public DbSet<SubscriptionType> SubscriptionTypes { get; set; }
     }
 }
