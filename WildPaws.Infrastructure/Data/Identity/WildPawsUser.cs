@@ -10,6 +10,10 @@ namespace WildPaws.Infrastructure.Data.Identity;
 // Add profile data for application users by adding properties to the WildPawsUser class
 public class WildPawsUser : IdentityUser
 {
-    
+    [StringLength(50)]
+    public string? FirstName { get; set; }
+
+    [StringLength(50)]
+    public string? LastName { get; set; }
 }
 
