@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using WildPaws.Core.Constants;
 using WildPaws.Core.Contracts;
+using WildPaws.Core.Models;
 using WildPaws.Infrastructure.Data.Identity;
 using static WildPaws.Core.Constants.UserConstants;
 
@@ -32,7 +33,7 @@ namespace WildPaws.Areas.Admin.Controllers
         {
             var users = await service.GetUsers();
 
-            return Ok(users);
+            return View(users);
         }
 
         public async Task<IActionResult> CreateRole()
@@ -43,6 +44,33 @@ namespace WildPaws.Areas.Admin.Controllers
             // });
 
             return Ok();
+        }
+        public async Task<IActionResult> Edit(string id)
+        {
+            var model = await service.GetUserForEdit(id);
+            return View(model);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Edit(UserEditViewModel model)
+        {
+            if (!ModelState.IsValid)
+            {
+                return View(model);
+            }
+
+
+
+            return View(model);
+        }
+        public async Task<IActionResult> Roles(string id)
+        {
+            return Ok(id);
+        }
+
+        public async Task<IActionResult> Remove(string id)
+        {
+            return Ok(id);
         }
     }
 }
