@@ -4,8 +4,9 @@ using Microsoft.AspNetCore.Mvc;
 using WildPaws.Core.Constants;
 using WildPaws.Core.Contracts;
 using WildPaws.Infrastructure.Data.Identity;
+using static WildPaws.Core.Constants.UserConstants;
 
-namespace WildPaws.Controllers
+namespace WildPaws.Areas.Admin.Controllers
 {
     public class UserController : BaseController
     {
@@ -24,6 +25,24 @@ namespace WildPaws.Controllers
         public IActionResult Index()
         {
             return View();
+        }
+
+        [Authorize(Roles = UserConstants.Roles.Administrator)]
+        public async Task<IActionResult> ManageUsers()
+        {
+            var users = await service.GetUsers();
+
+            return Ok(users);
+        }
+
+        public async Task<IActionResult> CreateRole()
+        {
+            //await roleManager.CreateAsync(new IdentityRole()
+            // {
+            //     Name = "Administrator"
+            // });
+
+            return Ok();
         }
     }
 }
