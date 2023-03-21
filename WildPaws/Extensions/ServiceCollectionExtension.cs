@@ -1,5 +1,7 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using WildPaws.Core.Contracts;
+using WildPaws.Core.Services;
 using WildPaws.Infrastructure.Data;
 using WildPaws.Infrastructure.Data.Identity;
 using WildPaws.Infrastructure.Data.Repositories;
@@ -11,6 +13,7 @@ namespace Microsoft.Extensions.DependencyInjection
         public static IServiceCollection AddApplicationServices(this IServiceCollection services)
         {
             services.AddScoped<IApplicationDbRepository, ApplicationDbRepository>();
+            services.AddScoped<IUserService, UserService>();
 
             return services;
         }
