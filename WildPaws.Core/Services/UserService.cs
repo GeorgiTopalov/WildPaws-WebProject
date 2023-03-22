@@ -20,6 +20,11 @@ namespace WildPaws.Core.Services
             this.repo = repo;
         }
 
+        public async Task<WildPawsUser> GetUserById(string id)
+        {
+            return await repo.GetByIdAsync<WildPawsUser>(id);
+        }
+
         public async Task<UserEditViewModel> GetUserForEdit(string id)
         {
             var user = await repo.GetByIdAsync<WildPawsUser>(id);

@@ -1,6 +1,8 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.EntityFrameworkCore;
 using WildPaws.Core.Constants;
 using WildPaws.Core.Contracts;
 using WildPaws.Core.Models;
@@ -58,14 +60,35 @@ namespace WildPaws.Areas.Admin.Controllers
             {
                 return View(model);
             }
-
-
-
+            if (await service.UpdateUser(model))
+            {
+                ViewData[MessageConstant.SuccessMessage] = "Successfully changed User data!";
+            }
+            else
+            {
+                ViewData[MessageConstant.ErrorMessage] = "An error occured!";
+            }
             return View(model);
         }
         public async Task<IActionResult> Roles(string id)
         {
-            return Ok(id);
+            var user = await service.GetUserById(id);
+            var model = new UserRolesViewModel()
+            {
+                UserId = user.Id,
+                Name = $"{user.FirstName} {user.LastName}"
+            };
+
+            ViewBag.RoleItems = roleManager.Roles
+                .ToList()
+                .Select(r=> new SelectListItem()
+                {
+                    Text = r.Name,
+                    Value = r.Id,
+                    Selected = userManager.IsInRoleAsync(user, r.Name).Result
+                });
+
+            return View(model);
         }
 
         public async Task<IActionResult> Remove(string id)
