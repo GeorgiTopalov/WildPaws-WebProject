@@ -19667,7 +19667,7 @@ html.maximized-card {
     flex-direction: column;
     height: 100vh;
     -ms-flex-pack: center;
-    justify-content: center
+    justify-content: center;
 }
 
 .login-box, .register-box {
@@ -29546,5 +29546,9 @@ a.text-muted:hover {
 
 [class*=accent-] a.btn-dark {
     color: #fff
+}
+
+.move-up{
+    margin-top: -15px
 }
 /*# sourceMappingURL=adminlte.min.css.map */

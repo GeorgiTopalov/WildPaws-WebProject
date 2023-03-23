@@ -1,19 +1,21 @@
-﻿<!DOCTYPE html>
+﻿@{ 
+    var routeData = ViewContext.RouteData.Values;
+    routeData["culture"] = "{0}";
+}
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="utf-8">
-    <title>@ViewData["Title"] - WildPaws</title>
+    <title>@ViewData["Title"]</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <meta content="Free HTML Templates" name="keywords">
-    <meta content="Free HTML Templates" name="description">
 
     <!-- Favicon -->
     <link href="~/img/LogoIcon.ico" rel="icon">
 
     <!-- Google Web Fonts -->
     <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins&family=Roboto:wght@700&display=swap" rel="stylesheet">  
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&family=Roboto:wght@700&display=swap" rel="stylesheet">
 
     <!-- Icon Font Stylesheet -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
@@ -28,7 +30,6 @@
     <!-- Template Stylesheet -->
     <link href="~/css/style.css" rel="stylesheet">
 
-
     <link rel="stylesheet" href="~/plugins/toastr/toastr.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     @await RenderSectionAsync("Head", false)
@@ -37,10 +38,8 @@
 <body>
 
     <!-- Navbar Start -->
-   <partial name="_MainMenu" />
+    <partial name="_MainMenu" />
     <!-- Navbar End -->
-   
-
     @RenderBody()
 
     <!-- Footer Start -->
@@ -118,8 +117,6 @@
         </div>
     </div>
     <!-- Footer End -->
-
-
     <!-- Back to Top -->
     <a href="#" class="btn btn-primary py-3 fs-4 back-to-top"><i class="bi bi-arrow-up"></i></a>
 
@@ -134,11 +131,11 @@
     <!-- Template Javascript -->
     <script src="~/js/main.js"></script>
 
-      <!-- Pluggins -->
+    <!-- Pluggins -->
     <script src="~/plugins/toastr/toastr.min.js"></script>
     <script src="~/plugins/bootstrap/js/bootstrap.js"></script>
-    
-    <partial name="_UserMessages"/>
+
+    <partial name="_UserMessages" />
     @await RenderSectionAsync("Scripts", false)
 </body>
 
