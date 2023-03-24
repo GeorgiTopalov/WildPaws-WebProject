@@ -81,7 +81,7 @@ namespace WildPaws.Areas.Admin.Controllers
 
             ViewBag.RoleItems = roleManager.Roles
                 .ToList()
-                .Select(r=> new SelectListItem()
+                .Select(r => new SelectListItem()
                 {
                     Text = r.Name,
                     Value = r.Id,
@@ -91,6 +91,21 @@ namespace WildPaws.Areas.Admin.Controllers
             return View(model);
         }
 
+
+        [HttpPost]
+        public async Task<IActionResult> Roles(UserRolesViewModel model)
+        {
+            var user = await service.GetUserById(model.UserId);
+            var userRoles = await userManager.GetRolesAsync(user);
+            await userManager.RemoveFromRolesAsync(user, userRoles);
+
+            if (model.RoleNames?.Length > 0)
+            {
+                await userManager.AddToRolesAsync(user, model.RoleNames);
+            }
+
+            return RedirectToAction(nameof(ManageUsers));
+        }
         public async Task<IActionResult> Remove(string id)
         {
             return Ok(id);
