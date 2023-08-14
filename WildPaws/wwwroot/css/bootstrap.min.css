@@ -11086,3 +11086,7 @@ textarea.form-control-lg {
         display: none !important
     }
 }
+
+.background-color-sec {
+    background-color: #d8C593;
+}

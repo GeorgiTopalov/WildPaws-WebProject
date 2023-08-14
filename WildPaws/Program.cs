@@ -35,6 +35,12 @@ else
     app.UseHsts();
 }
 
+app.Use((authContext, next) =>
+{
+    authContext.Request.Scheme = "https";
+    return next();
+});
+
 app.UseHttpsRedirection();
 app.UseStaticFiles();
 
