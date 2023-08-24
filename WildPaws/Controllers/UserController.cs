@@ -1,7 +1,5 @@
-﻿using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Identity;
+﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
-using WildPaws.Core.Constants;
 using WildPaws.Core.Contracts;
 using WildPaws.Infrastructure.Data.Identity;
 

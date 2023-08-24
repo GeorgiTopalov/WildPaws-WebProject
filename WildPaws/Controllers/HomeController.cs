@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Caching.Distributed;
 using System.Diagnostics;
 using WildPaws.Core.Constants;
 using WildPaws.Models;
@@ -7,11 +8,12 @@ namespace WildPaws.Controllers
 {
     public class HomeController : BaseController
     {
-        private readonly ILogger<HomeController> _logger;
-
-        public HomeController(ILogger<HomeController> logger)
+        private readonly ILogger<HomeController> logger;
+        private readonly IDistributedCache cache;
+        public HomeController(ILogger<HomeController> logger, IDistributedCache cache)
         {
-            _logger = logger;
+            this.logger = logger;
+            this.cache = cache;
         }
 
         public IActionResult Index()

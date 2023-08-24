@@ -10,6 +10,12 @@ builder.Services.AddApplicationDbContexts(builder.Configuration);
 
 builder.Services.AddApplicationIdentity();
 
+//builder.Services.AddHttpsRedirection(options =>
+//{
+//    options.HttpsPort = 5001; 
+//});
+
+
 builder.Services.AddAuthentication()
     .AddFacebook(options =>
     {
@@ -18,6 +24,11 @@ builder.Services.AddAuthentication()
     });
 
 builder.Services.AddControllersWithViews();
+
+builder.Services.AddStackExchangeRedisCache(options =>
+{
+    options.Configuration = builder.Configuration.GetConnectionString("Redis");
+});
 
 builder.Services.AddApplicationServices();
 
