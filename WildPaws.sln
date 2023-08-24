@@ -3,11 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.0.32014.148
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WildPaws", "WildPaws\WildPaws.csproj", "{BBA8499A-C8FF-418C-B345-F7D98988B2AB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WildPaws", "WildPaws\WildPaws.csproj", "{BBA8499A-C8FF-418C-B345-F7D98988B2AB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WildPaws.Core", "WildPaws.Core\WildPaws.Core.csproj", "{2EA4E1F0-BE5D-4AAC-ADBB-7D217D3B3578}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WildPaws.Core", "WildPaws.Core\WildPaws.Core.csproj", "{2EA4E1F0-BE5D-4AAC-ADBB-7D217D3B3578}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WildPaws.Infrastructure", "WildPaws.Infrastructure\WildPaws.Infrastructure.csproj", "{76D60A34-E219-4F61-AE6A-F92A3893B0EF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WildPaws.Infrastructure", "WildPaws.Infrastructure\WildPaws.Infrastructure.csproj", "{76D60A34-E219-4F61-AE6A-F92A3893B0EF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WildPaws.Test", "WildPaws.Test\WildPaws.Test.csproj", "{665AFB9B-5605-44AE-B8EC-1C37365070F1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +29,10 @@ Global
 		{76D60A34-E219-4F61-AE6A-F92A3893B0EF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{76D60A34-E219-4F61-AE6A-F92A3893B0EF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{76D60A34-E219-4F61-AE6A-F92A3893B0EF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{665AFB9B-5605-44AE-B8EC-1C37365070F1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{665AFB9B-5605-44AE-B8EC-1C37365070F1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{665AFB9B-5605-44AE-B8EC-1C37365070F1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{665AFB9B-5605-44AE-B8EC-1C37365070F1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
