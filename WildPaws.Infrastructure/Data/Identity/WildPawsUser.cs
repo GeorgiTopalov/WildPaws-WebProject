@@ -15,5 +15,6 @@ public class WildPawsUser : IdentityUser
 
     [StringLength(50)]
     public string? LastName { get; set; }
+
 }
 

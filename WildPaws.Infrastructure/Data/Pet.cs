@@ -23,7 +23,7 @@ namespace WildPaws.Infrastructure.Data
         public Breed Breed { get; set; }
 
         [Required]
-        []
+        [Range(0.5, 65)]
         public double Weight { get; set; }
 
         [StringLength(6)]
@@ -34,15 +34,33 @@ namespace WildPaws.Infrastructure.Data
         public bool IsSpayed { get; set; }
 
         [Required]
-        public bool HasHealthIssues { get; set; }
-
-        [Required]
+        [StringLength(15)]
         public string BodyStatus { get; set; }
 
         [Required]
+        [StringLength(15)]
         public string ActivityLevel { get; set; }
 
         [Required]
+        [StringLength(15)]
         public string CurrentFoodType { get; set; }
+
+        [Required]
+        public bool HasHealthIssues { get; set; }
+
+        [Required]
+        [StringLength(25)]
+        public string TreatsAndScraps { get; set; }
+
+
+        [Required]
+        [ForeignKey(nameof(CustomerId))]
+        public Customer Customer { get; set; }
+
+        public Guid CustomerId { get; set; }
+
+        [StringLength(200)]
+        public string? Comment { get; set; }
+
     }
 }

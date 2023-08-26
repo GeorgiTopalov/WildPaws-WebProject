@@ -13,7 +13,7 @@ namespace WildPaws.Infrastructure.Data
         public string Name { get; set; }
 
         [Required]
-        [Email]
+        [EmailAddress]
         public string Email { get; set; }
 
         [StringLength(10)]
@@ -29,6 +29,7 @@ namespace WildPaws.Infrastructure.Data
         [ForeignKey(nameof(SubscriptionId))]
         public Subscription? Subscription { get; set; }
 
+        public ICollection<Pet>? Pets { get; set; }
 
     }
 }

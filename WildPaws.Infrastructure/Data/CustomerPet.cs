@@ -4,16 +4,16 @@ using WildPaws.Infrastructure.Data.Identity;
 
 namespace WildPaws.Infrastructure.Data
 {
-    public class UserPet
+    public class CustomerPet
     {
         [Required]
-        public int WildPawsUserId { get; set; }
+        public Guid CustomerId { get; set; } = Guid.NewGuid();
 
         [Required]
-        public int PetId { get; set; }
+        public Guid PetId { get; set; }
 
-        [ForeignKey(nameof(WildPawsUserId))]
-        public virtual WildPawsUser WildPawsUser { get; set; }
+        [ForeignKey(nameof(CustomerId))]
+        public virtual Customer Customerv { get; set; }
 
         [ForeignKey(nameof(PetId))]
         public virtual Pet Pet { get; set; }

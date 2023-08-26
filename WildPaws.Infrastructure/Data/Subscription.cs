@@ -20,11 +20,6 @@ namespace WildPaws.Infrastructure.Data
         [ForeignKey(nameof(PetId))]
         public Pet Pet { get; set; }
 
-        public Guid CustomerId { get; set; }
-
-        [ForeignKey(nameof(CustomerId))]
-        public Customer Customer { get; set; }
-
         public Guid SubscriptionTypeId { get; set; }
 
         [ForeignKey(nameof(SubscriptionTypeId))]
