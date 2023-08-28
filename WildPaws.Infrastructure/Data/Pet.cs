@@ -1,5 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using WildPaws.Infrastructure.Data.Identity;
 
 namespace WildPaws.Infrastructure.Data
 {
@@ -54,10 +55,10 @@ namespace WildPaws.Infrastructure.Data
 
 
         [Required]
-        [ForeignKey(nameof(CustomerId))]
-        public Customer Customer { get; set; }
+        [ForeignKey(nameof(WildPawsUserId))]
+        public WildPawsUser WildPawsUser { get; set; }
 
-        public Guid CustomerId { get; set; }
+        public string WildPawsUserId { get; set; }
 
         [StringLength(200)]
         public string? Comment { get; set; }

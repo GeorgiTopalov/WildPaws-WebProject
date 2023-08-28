@@ -18,13 +18,13 @@ namespace WildPaws.Infrastructure.Data
             // For example, you can rename the ASP.NET Identity table names and more.
             // Add your customizations after calling base.OnModelCreating(builder);
 
-            builder.Entity<CustomerPet>()
-                .HasKey(up => new { up.PetId, up.CustomerId });
+            builder.Entity<UserPet>()
+                .HasKey(up => new { up.PetId, up.WildpawsUserId });
 
             builder.Entity<Pet>()
-               .HasOne(p => p.Customer)
+               .HasOne(p => p.WildPawsUser)
                .WithMany(c => c.Pets)
-               .HasForeignKey(p => p.CustomerId)
+               .HasForeignKey(p => p.WildPawsUserId)
                .OnDelete(DeleteBehavior.NoAction);
         }
 
@@ -32,11 +32,10 @@ namespace WildPaws.Infrastructure.Data
         public DbSet<Ingredient> Ingredients { get; set; }
         public DbSet<Address> Addresses { get; set; }
         public DbSet<Breed> Breeds { get; set; }
-        public DbSet<Customer> Customers { get; set; }
         public DbSet<Pet> Pets { get; set; }
         public DbSet<Subscription> Subscriptions { get; set; }
         public DbSet<SubscriptionType> SubscriptionTypes { get; set; }
-        public DbSet<CustomerPet> CustomerPets { get; set; }
+        public DbSet<UserPet> CustomerPets { get; set; }
 
     }
 }
