@@ -31,7 +31,6 @@ namespace WildPaws.Infrastructure.Data
         public DbSet<Recipe> Recipes { get; set; }
         public DbSet<Ingredient> Ingredients { get; set; }
         public DbSet<Address> Addresses { get; set; }
-        public DbSet<Breed> Breeds { get; set; }
         public DbSet<Pet> Pets { get; set; }
         public DbSet<Subscription> Subscriptions { get; set; }
         public DbSet<SubscriptionType> SubscriptionTypes { get; set; }

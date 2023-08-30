@@ -18,10 +18,7 @@ namespace WildPaws.Infrastructure.Data
         public int Age { get; set; }
 
         [Required]
-        public int BreedId { get; set; }
-
-        [ForeignKey(nameof(BreedId))]
-        public Breed Breed { get; set; }
+        public string Breed { get; set; }
 
         [Required]
         [Range(0.5, 65)]
