@@ -36,7 +36,7 @@ namespace WildPaws.Controllers
             }
 
 
-            return RedirectToAction("Index");
+            return RedirectToAction("ForYourPet", "ForYourPetController", new { id = model.Id});
         }
 
     }
