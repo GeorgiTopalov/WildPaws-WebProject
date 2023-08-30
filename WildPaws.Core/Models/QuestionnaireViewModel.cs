@@ -5,10 +5,10 @@ namespace WildPaws.Core.Models
     public class QuestionnaireViewModel
     {
         [Required]
-        public int Id { get; set; }
+        public Guid Id { get; set; } = Guid.NewGuid();
 
         [Required]
-        public int CustomerId { get; set; }
+        public string WildPawsUserId { get; set; }
 
         [Required]
         public string Name { get; set; }

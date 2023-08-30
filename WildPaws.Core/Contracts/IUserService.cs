@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using WildPaws.Core.Models;
+﻿using WildPaws.Core.Models;
 using WildPaws.Infrastructure.Data.Identity;
 
 namespace WildPaws.Core.Contracts
