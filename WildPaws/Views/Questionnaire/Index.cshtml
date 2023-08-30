@@ -1,4 +1,6 @@
-﻿@{
+﻿@using WildPaws.Core.Models
+@model QuestionnaireViewModel
+@{
     ViewData["Title"] = "Questionnaire";
 }
 
@@ -31,6 +33,8 @@
 
     <!-- Template Stylesheet -->
     <link href="~/css/style.css" rel="stylesheet">
+    <partial name="_ValidationScriptsPartial" />
+
 </head>
 
 <body>
@@ -41,23 +45,24 @@
             <div class="row">
                 <div class="col-lg-6 mb-5 mb-lg-0" style="min-height: 500px;">
                     <div class="position-relative h-100 background-color-sec">
-                        <form class="form-select-sm">
+                        <form id="questionnaireForm" class="form-select-sm" asp-action="SubmitForm" method="post">
+                            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                             <div class="row g-3">
                                 <div class="form-group">
-                                    <label><h4>What is your dog's name?</h4></label>
-                                    <input type="text" class="col-form-label bg-light border-0 px-5" style="height: 35px;">
+                                    <label asp-for="Name"><h4>What is your dog's name?*</h4></label>
+                                    <input asp-for="Name" type="text" class="col-form-label bg-light border-0 px-5" style="height: 35px;">
                                 </div>
                                 <div class="form-group">
-                                    <label><h4>What is your dog's breed?</h4></label>
-                                    <input type="text" class="col-form-label bg-light border-0 px-5" style="height: 35px;">
+                                    <label asp-for="Breed"><h4>What is your dog's breed?*</h4></label>
+                                    <input asp-for="Breed" type="text" class="col-form-label bg-light border-0 px-5" style="height: 35px;">
                                 </div>
                                 <div class="form-group">
-                                    <label><h4>How much does your dog weight?</h4></label>
-                                    <input type="text" class="col-form-label bg-light border-0 px-5" style="height: 35px;">
+                                    <label asp-for="Age"><h4>How much does your dog weight?*</h4></label>
+                                    <input asp-for="Age" type="text" class="col-form-label bg-light border-0 px-5" style="height: 35px;">
                                 </div>
                                 <div class="form-group">
-                                    <label><h4>Age:</h4></label>
-                                    <select class="form-control select2bs4" style="width: 5%;">
+                                    <label asp-for="Age"><h4>Age:*</h4></label>
+                                    <select asp-for="Age" class="form-control select2bs4" style="width: 5%;">
                                         <option selected="selected">1</option>
                                         <option>2</option>
                                         <option>3</option>
@@ -81,97 +86,70 @@
                                     </select>
                                 </div>
                                 <div class="form-group">
-                                    <label><h4>Gender:</h4></label>
-                                    <select class="form-control select2bs4" style="width: 15%;">
+                                    <label asp-for="Gender"><h4>Gender:*</h4></label>
+                                    <select asp-for="Gender" class="form-control select2bs4" style="width: 15%;">
                                         <option selected="selected">Male</option>
                                         <option>Female</option>
                                     </select>
                                 </div>
                                 <div class="form-group">
-                                    <label>Is your dog spayed?</label>
-                                    <select class="form-control select2bs4" style="width: 10%;">
+                                    <label asp-for="IsSpayed"><h4>Is your dog spayed?*</h4></label>
+                                    <select asp-for="IsSpayed" class="form-control select2bs4" style="width: 10%;">
                                         <option selected="selected">No</option>
                                         <option>Yes</option>
                                     </select>
                                 </div>
                                 <div class="form-group">
-                                    <label><h4>Body status:</h4></label>
-                                    <div class="custom-control custom-radio">
-                                        <input class="custom-control-input" type="radio" id="customRadio1" name="customRadio">
-                                        <label for="customRadio1" class="custom-control-label">Underweight</label>
-                                    </div>
-                                    <div class="custom-control custom-radio">
-                                        <input class="custom-control-input" type="radio" id="customRadio2" name="customRadio" checked>
-                                        <label for="customRadio2" class="custom-control-label">Normal</label>
-                                    </div>
-                                    <div class="custom-control custom-radio">
-                                        <input class="custom-control-input" type="radio" id="customRadio3" name="customRadio">
-                                        <label for="customRadio3" class="custom-control-label">Overweight</label>
-                                    </div>
-                                    <div class="custom-control custom-radio">
-                                        <input class="custom-control-input" type="radio" id="customRadio4" name="customRadio">
-                                        <label for="customRadio4" class="custom-control-label">Obese</label>
-                                    </div>
+                                    <label asp-for="BodyStatus"><h4>Body status:*</h4></label>
+                                    <select asp-for="BodyStatus" class="form-control select2bs4" style="width: 10%;">
+                                        <option>Underweight</option>
+                                        <option>Normal</option>
+                                        <option>Overweight</option>
+                                        <option>Obese</option>
+                                    </select>
                                 </div>
                                 <div class="form-group">
-                                    <label><h4>How active is your dog?</h4></label>
-                                    <div class="custom-control custom-radio">
-                                        <input class="custom-control-input" type="radio" id="customRadio1" name="customRadio">
-                                        <label for="customRadio1" class="custom-control-label">Not very active(Primaraly stays at home)</label>
-                                    </div>
-                                    <div class="custom-control custom-radio">
-                                        <input class="custom-control-input" type="radio" id="customRadio2" name="customRadio" checked>
-                                        <label for="customRadio2" class="custom-control-label">Active (often taken for walkies and regular play time)</label>
-                                    </div>
-                                    <div class="custom-control custom-radio">
-                                        <input class="custom-control-input" type="radio" id="customRadio3" name="customRadio">
-                                        <label for="customRadio3" class="custom-control-label">Very active(Dog lives outdoors where it runs all day or taken or long walks for a few hours a day)</label>
-                                    </div>
+                                    <label asp-for="ActivityLevel"><h4>How active is your dog?*</h4></label>
+                                    <select asp-for="ActivityLevel" class="form-control select2bs4" style="width: 10%;">
+                                        <option>Not very active (Primarily stays at home)</option>
+                                        <option>Active (Often taken for walkies and regular play time)</option>
+                                        <option>Very active (Dog lives outdoors where it runs all day or taken or long walks for few hours a day)</option>
+                                    </select>
                                 </div>
                                 <div class="form-group">
-                                    <label><h4>What food is your dog currently eating?</h4></label>
-                                    <div class="custom-control custom-radio">
-                                        <input class="custom-control-input" type="radio" id="customRadio1" name="customRadio" checked>
-                                        <label for="customRadio1" class="custom-control-label">Dry food(Kibble or freezdried)</label>
-                                    </div>
-                                    <div class="custom-control custom-radio">
-                                        <input class="custom-control-input" type="radio" id="customRadio2" name="customRadio">
-                                        <label for="customRadio2" class="custom-control-label">Wet food</label>
-                                    </div>
-                                    <div class="custom-control custom-radio">
-                                        <input class="custom-control-input" type="radio" id="customRadio3" name="customRadio">
-                                        <label for="customRadio3" class="custom-control-label">Raw food</label>
-                                    </div>
-                                    <div class="custom-control custom-radio">
-                                        <input class="custom-control-input" type="radio" id="customRadio4" name="customRadio">
-                                        <label for="customRadio4" class="custom-control-label">Cooked food</label>
-                                    </div>
+                                    <label asp-for="CurrentFoodType"><h4>What food is your dog currently eating?*</h4></label>
+                                    <select asp-for="CurrentFoodType" class="form-control select2bs4" style="width: 10%;">
+                                        <option>Dry food (Kibble or freezedried)</option>
+                                        <option>Wet food</option>
+                                        <option>Raw food</option>
+                                        <option>Cooked food</option>
+                                    </select>
                                 </div>
                                 <div class="form-group">
-                                    <label><h4>Do you give your dog treats or scraps?</h4></label>
-                                    <div class="custom-control custom-radio">
-                                        <input class="custom-control-input" type="radio" id="customRadio1" name="customRadio" checked>
-                                        <label for="customRadio1" class="custom-control-label">Rarely</label>
-                                    </div>
-                                    <div class="custom-control custom-radio">
-                                        <input class="custom-control-input" type="radio" id="customRadio2" name="customRadio">
-                                        <label for="customRadio2" class="custom-control-label">Some treats and/or scraps</label>
-                                    </div>
-                                    <div class="custom-control custom-radio">
-                                        <input class="custom-control-input" type="radio" id="customRadio3" name="customRadio">
-                                        <label for="customRadio3" class="custom-control-label">A lot of treats and/or scraps</label>
-                                    </div>
+                                    <label asp-for="TreatsAndScraps"><h4>Do you give your dog treats or scraps?*</h4></label>
+                                    <select asp-for="TreatsAndScraps" class="form-control select2bs4" style="width: 10%;">
+                                        <option>Rarely</option>
+                                        <option>Some treats and/or scraps</option>
+                                        <option>A lot of treats and/or scraps</option>
+                                    </select>
                                 </div>
                                 <div class="form-group">
-                                    <label><h4>Does your dog have any health issues?</h4></label>
-                                    <div class="custom-control custom-radio">
-                                        <input class="custom-control-input" type="radio" id="customRadio1" name="customRadio" checked>
-                                        <label for="customRadio1" class="custom-control-label">No</label>
+                                    <label asp-for="HasHealthIssues"><h4>Does your dog have any health issues?*</h4></label>
+                                    <select asp-for="HasHealthIssues" class="form-control select2bs4" style="width: 10%;">
+                                        <option>No</option>
+                                        <option>Yes</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label asp-for="Comment"><h4>Would you like to add any comment?</h4></label>
+                                    <div>
+                                        <row>
+                                        <input asp-for="Comment" type="text" class="col-form-label bg-light border-0 px-5" style="height: 135px; width: 395px;">
+                                        </row>
                                     </div>
-                                    <div class="custom-control custom-radio">
-                                        <input class="custom-control-input" type="radio" id="customRadio2" name="customRadio">
-                                        <label for="customRadio2" class="custom-control-label">Yes</label>
-                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <button class="btn btn-primary w-100 py-3" type="submit">Continue</button>
                                 </div>
                             </div>
                         </form>

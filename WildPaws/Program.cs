@@ -1,7 +1,6 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
-using WildPaws.Infrastructure.Data;
-using WildPaws.Infrastructure.Data.Identity;
+
 
 var builder = WebApplication.CreateBuilder(args);
 

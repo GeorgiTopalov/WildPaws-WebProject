@@ -1,16 +1,17 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using WildPaws.Core.Contracts;
 using WildPaws.Core.Models;
-using WildPaws.Infrastructure.Data;
+using WildPaws.Core.Constants;
 
 namespace WildPaws.Controllers
 {
     public class QuestionnaireController : BaseController
     {
-        private readonly ApplicationDbContext dbContext;
-
-        public QuestionnaireController(ApplicationDbContext dbContext)
+        private readonly IQuestionnareService service;
+        public QuestionnaireController(
+            IQuestionnareService service)
         {
-            this.dbContext = dbContext;
+            this.service = service;
         }
         public IActionResult Index()
         {
@@ -18,11 +19,22 @@ namespace WildPaws.Controllers
         }
 
         [HttpPost]
-        public IActionResult SubmitForm(Pet pet)
+        public async Task<IActionResult> SubmitForm(QuestionnaireViewModel model)
         {
-            // Assuming you have a _dbContext instance as shown in the previous example
-            dbContext.Pets.Add(pet);
-            dbContext.SaveChanges();
+            if (!ModelState.IsValid)
+            {
+                return View(model);
+            }
+
+            if (await service.AddPet(model))
+            {
+                ViewData[MessageConstant.SuccessMessage] = "Successfully added Pet to data!";
+            }
+            else
+            {
+                ViewData[MessageConstant.ErrorMessage] = "An error occured!";
+            }
+
 
             return RedirectToAction("Index");
         }
