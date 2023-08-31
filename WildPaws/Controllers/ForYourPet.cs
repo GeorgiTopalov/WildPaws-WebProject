@@ -2,7 +2,7 @@
 
 namespace WildPaws.Controllers
 {
-    public class ForYourPetController : BaseController
+    public class ForYourPet : BaseController
     {
         public IActionResult Index(Guid id)
         {

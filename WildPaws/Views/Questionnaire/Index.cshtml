@@ -57,8 +57,8 @@
                                     <input asp-for="Breed" type="text" class="col-form-label bg-light border-0 px-5" style="height: 35px;">
                                 </div>
                                 <div class="form-group">
-                                    <label asp-for="Age"><h4>How much does your dog weight?*</h4></label>
-                                    <input asp-for="Age" type="text" class="col-form-label bg-light border-0 px-5" style="height: 35px;">
+                                    <label asp-for="Weight"><h4>How much does your dog weight?*</h4></label>
+                                    <input asp-for="Weight" type="text" class="col-form-label bg-light border-0 px-5" style="height: 35px;">
                                 </div>
                                 <div class="form-group">
                                     <label asp-for="Age"><h4>Age:*</h4></label>
@@ -95,8 +95,8 @@
                                 <div class="form-group">
                                     <label asp-for="IsSpayed"><h4>Is your dog spayed?*</h4></label>
                                     <select asp-for="IsSpayed" class="form-control select2bs4" style="width: 10%;">
-                                        <option selected="selected">No</option>
-                                        <option>Yes</option>
+                                        <option selected="selected" value="false">No</option>
+                                        <option value="true">Yes</option>
                                     </select>
                                 </div>
                                 <div class="form-group">
@@ -136,8 +136,8 @@
                                 <div class="form-group">
                                     <label asp-for="HasHealthIssues"><h4>Does your dog have any health issues?*</h4></label>
                                     <select asp-for="HasHealthIssues" class="form-control select2bs4" style="width: 10%;">
-                                        <option>No</option>
-                                        <option>Yes</option>
+                                        <option value="false">No</option>
+                                        <option value="true">Yes</option>
                                     </select>
                                 </div>
                                 <div class="form-group">

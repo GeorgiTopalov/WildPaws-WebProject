@@ -9,27 +9,46 @@ namespace WildPaws.Core.Services
     {
 
         private readonly IApplicationDbRepository repo;
-
         public QuestionnaireService(IApplicationDbRepository repo)
         {
             this.repo = repo;
         }
 
 
-        public async Task<bool> AddPet(QuestionnaireViewModel model)
+        public async Task<bool> AddPet(QuestionnaireViewModel model, string id)
         {
             bool result = false;
-            await repo.AddAsync(model);
-
-            var newPet = await repo.GetByIdAsync<Pet>(model.Id);
-            await repo.SaveChangesAsync();
-
-            if (newPet != null)
+            var newPet = new Pet()
             {
+                Id = model.Id,
+                Name = model.Name,
+                Breed = model.Breed,
+                Weight = model.Weight,
+                Age = model.Age,
+                Gender = model.Gender,
+                IsSpayed = model.IsSpayed,
+                BodyStatus = model.BodyStatus,
+                ActivityLevel = model.ActivityLevel,
+                CurrentFoodType = model.CurrentFoodType,
+                TreatsAndScraps = model.TreatsAndScraps,
+                HasHealthIssues = model.HasHealthIssues,
+                Comment = model.Comment,
+                WildPawsUserId = id
+            };
+
+            try
+            {
+                await repo.AddAsync(newPet);
+                await repo.SaveChangesAsync();
                 result = true;
             }
+            catch (Exception e)
+            {
 
+            }
+            
             return result;
+            
         }
 
         public async Task<Pet> GetPetById(string id)

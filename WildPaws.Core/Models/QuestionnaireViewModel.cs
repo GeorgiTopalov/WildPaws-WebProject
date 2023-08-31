@@ -1,14 +1,13 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using Microsoft.AspNetCore.Mvc.ModelBinding;
 
 namespace WildPaws.Core.Models
 {
     public class QuestionnaireViewModel
     {
-        [Required]
+        [Key]
+        [BindNever]
         public Guid Id { get; set; } = Guid.NewGuid();
-
-        [Required]
-        public string WildPawsUserId { get; set; }
 
         [Required]
         public string Name { get; set; }
@@ -17,11 +16,11 @@ namespace WildPaws.Core.Models
         public string Breed { get; set; }
 
         [Required]
-        public int Age { get; set; }
-
-        [Required]
         [Range(0.5, 65)]
         public double Weight { get; set; }
+
+        [Required]
+        public int Age { get; set; }
 
         [Required]
         public string Gender { get; set; }
