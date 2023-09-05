@@ -51,18 +51,22 @@
                                 <div class="form-group">
                                     <label asp-for="Name"><h4>What is your dog's name?*</h4></label>
                                     <input asp-for="Name" type="text" class="col-form-label bg-light border-0 px-5" style="height: 35px;">
+                                     <span asp-validation-for="Name" class="text-danger"></span>
                                 </div>
                                 <div class="form-group">
                                     <label asp-for="Breed"><h4>What is your dog's breed?*</h4></label>
                                     <input asp-for="Breed" type="text" class="col-form-label bg-light border-0 px-5" style="height: 35px;">
+                                     <span asp-validation-for="Breed" class="text-danger"></span>
                                 </div>
                                 <div class="form-group">
                                     <label asp-for="Weight"><h4>How much does your dog weight?*</h4></label>
                                     <input asp-for="Weight" type="text" class="col-form-label bg-light border-0 px-5" style="height: 35px;">
+                                     <span asp-validation-for="Weight" class="text-danger"></span>
                                 </div>
                                 <div class="form-group">
                                     <label asp-for="Age"><h4>Age:*</h4></label>
                                     <select asp-for="Age" class="form-control select2bs4" style="width: 5%;">
+                                         <span asp-validation-for="Age" class="text-danger"></span>
                                         <option selected="selected">1</option>
                                         <option>2</option>
                                         <option>3</option>
@@ -88,6 +92,7 @@
                                 <div class="form-group">
                                     <label asp-for="Gender"><h4>Gender:*</h4></label>
                                     <select asp-for="Gender" class="form-control select2bs4" style="width: 15%;">
+                                         <span asp-validation-for="Gender" class="text-danger"></span>
                                         <option selected="selected">Male</option>
                                         <option>Female</option>
                                     </select>
@@ -95,6 +100,7 @@
                                 <div class="form-group">
                                     <label asp-for="IsSpayed"><h4>Is your dog spayed?*</h4></label>
                                     <select asp-for="IsSpayed" class="form-control select2bs4" style="width: 10%;">
+                                         <span asp-validation-for="IsSpayed" class="text-danger"></span>
                                         <option selected="selected" value="false">No</option>
                                         <option value="true">Yes</option>
                                     </select>
@@ -102,6 +108,7 @@
                                 <div class="form-group">
                                     <label asp-for="BodyStatus"><h4>Body status:*</h4></label>
                                     <select asp-for="BodyStatus" class="form-control select2bs4" style="width: 10%;">
+                                         <span asp-validation-for="BodyStatus" class="text-danger"></span>
                                         <option>Underweight</option>
                                         <option>Normal</option>
                                         <option>Overweight</option>
@@ -111,6 +118,7 @@
                                 <div class="form-group">
                                     <label asp-for="ActivityLevel"><h4>How active is your dog?*</h4></label>
                                     <select asp-for="ActivityLevel" class="form-control select2bs4" style="width: 10%;">
+                                         <span asp-validation-for="ActivityLevel" class="text-danger"></span>
                                         <option>Not very active (Primarily stays at home)</option>
                                         <option>Active (Often taken for walkies and regular play time)</option>
                                         <option>Very active (Dog lives outdoors where it runs all day or taken or long walks for few hours a day)</option>
@@ -119,6 +127,8 @@
                                 <div class="form-group">
                                     <label asp-for="CurrentFoodType"><h4>What food is your dog currently eating?*</h4></label>
                                     <select asp-for="CurrentFoodType" class="form-control select2bs4" style="width: 10%;">
+                                         <span asp-validation-for="CurrentFoodType" class="text-danger"></span>
+
                                         <option>Dry food (Kibble or freezedried)</option>
                                         <option>Wet food</option>
                                         <option>Raw food</option>
@@ -128,6 +138,8 @@
                                 <div class="form-group">
                                     <label asp-for="TreatsAndScraps"><h4>Do you give your dog treats or scraps?*</h4></label>
                                     <select asp-for="TreatsAndScraps" class="form-control select2bs4" style="width: 10%;">
+                                         <span asp-validation-for="TreatsAndScraps" class="text-danger"></span>
+
                                         <option>Rarely</option>
                                         <option>Some treats and/or scraps</option>
                                         <option>A lot of treats and/or scraps</option>
@@ -136,12 +148,14 @@
                                 <div class="form-group">
                                     <label asp-for="HasHealthIssues"><h4>Does your dog have any health issues?*</h4></label>
                                     <select asp-for="HasHealthIssues" class="form-control select2bs4" style="width: 10%;">
+                                         <span asp-validation-for="HasHealthIssues" class="text-danger"></span>
+
                                         <option value="false">No</option>
                                         <option value="true">Yes</option>
                                     </select>
                                 </div>
                                 <div class="form-group">
-                                    <label asp-for="Comment"><h4>Would you like to add any comment?</h4></label>
+                                    <label asp-for="Comment"><h4>Would you like to add anything that we should know?</h4></label>
                                     <div>
                                         <row>
                                         <input asp-for="Comment" type="text" class="col-form-label bg-light border-0 px-5" style="height: 135px; width: 395px;">

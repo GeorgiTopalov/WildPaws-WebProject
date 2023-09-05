@@ -18,6 +18,7 @@ namespace WildPaws.Infrastructure.Data
         public int Age { get; set; }
 
         [Required]
+        [StringLength(40)]
         public string Breed { get; set; }
 
         [Required]

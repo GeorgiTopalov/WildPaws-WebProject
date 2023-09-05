@@ -29,7 +29,7 @@ namespace WildPaws.Controllers
         {
             if (!ModelState.IsValid)
             {
-                return View(model);
+                return View("index", model);
             }
 
             var questionnaireData = JsonConvert.SerializeObject(model);
