@@ -44,7 +44,7 @@ namespace WildPaws.Core.Services
             }
             catch (Exception e)
             {
-
+                Console.WriteLine(e.Message);
             }
             
             return result;

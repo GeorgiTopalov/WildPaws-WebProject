@@ -7,7 +7,7 @@ namespace WildPaws.Infrastructure.Data
     public class Pet
     {
         [Key]
-        public Guid Id { get; set; } = Guid.NewGuid();
+        public Guid Id { get; set; }
 
         [StringLength(25)]
         [Required]

@@ -4,6 +4,7 @@ using WildPaws.Core.Models;
 using WildPaws.Core.Constants;
 using Microsoft.AspNetCore.Identity;
 using WildPaws.Infrastructure.Data.Identity;
+using Newtonsoft.Json;
 
 namespace WildPaws.Controllers
 {
@@ -31,16 +32,8 @@ namespace WildPaws.Controllers
                 return View(model);
             }
 
-            var userId = userManager.GetUserId(User);
-
-            if (await service.AddPet(model, userId))
-            {
-                ViewData[MessageConstant.SuccessMessage] = "Successfully added Pet to data!";
-            }
-            else
-            {
-                ViewData[MessageConstant.ErrorMessage] = "An error occured!";
-            }
+            var questionnaireData = JsonConvert.SerializeObject(model);
+            Response.Cookies.Append("QuestionnaireData", questionnaireData);
 
 
             return RedirectToAction("Index", "ForYourPet", new { id = model.Id });
