@@ -11,6 +11,7 @@ namespace WildPaws.Infrastructure.Data
         [StringLength(50)]
         public string RecipeName { get; set; }
 
+
         public ICollection<Ingredient> Ingredients { get; set; } = new HashSet<Ingredient>();
     }
 }
