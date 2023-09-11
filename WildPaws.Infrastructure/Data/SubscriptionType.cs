@@ -10,7 +10,7 @@ namespace WildPaws.Infrastructure.Data
         [Required]
         public string Type { get; set; }
 
-        public int Discount { get; set; } = 0;
+        public int Discount { get; set; } = 1;
 
         [Required]
         public int DaysActive { get; set; }

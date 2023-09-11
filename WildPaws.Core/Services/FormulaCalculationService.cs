@@ -11,6 +11,7 @@ namespace WildPaws.Core.Services
 {
     public class FormulaCalculationService : IFormulaCalculationService
     {
+        private readonly double pricePerGram = 0.375;
         public async Task<double> GramsToConsume(QuestionnaireViewModel model, double caloriesPerGram)
         {
             double idealWeight = CalculateIdealWeight(model.BodyStatus, model.Weight);
@@ -27,12 +28,16 @@ namespace WildPaws.Core.Services
 
         public async Task<double> PricePerDay(double gramsToConsume, SubscriptionType subscriptionType)
         {
-            throw new NotImplementedException();
+            double pricePerDay = gramsToConsume * pricePerGram * subscriptionType.Discount;
+
+            return pricePerDay;
         }
 
         public async Task<double> SubscriptionPricce(double pricePerDay, SubscriptionType subscriptionType)
         {
-            throw new NotImplementedException();
+            double subPrice = pricePerDay * subscriptionType.DaysActive;
+
+            return subPrice;
         }
 
         private double CalculateIdealWeight(string bodyStatus, double weight)
