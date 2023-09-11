@@ -1,17 +1,44 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using WildPaws.Core.Constants;
 using WildPaws.Core.Contracts;
 using WildPaws.Core.Models;
 using WildPaws.Infrastructure.Data;
+using WildPaws.Infrastructure.Data.Repositories;
 
 namespace WildPaws.Core.Services
 {
     public class FormulaCalculationService : IFormulaCalculationService
     {
         private readonly double pricePerGram = 0.375;
+        private readonly IApplicationDbRepository repo;
+
+        public FormulaCalculationService(IApplicationDbRepository repo)
+        {
+            this.repo = repo;
+        }
+        public async Task<List<Recipe>> RecommendedRecipes(QuestionnaireViewModel model)
+        {
+            var recommendedRecipes = repo.All<Recipe>().ToList();
+
+            if (model.Age > 8)
+            {
+                recommendedRecipes.RemoveAll(recipe => recipe.RecipeName == RecipeNames.Beef);
+            }
+            else
+            {
+                recommendedRecipes.RemoveAll(recipe => recipe.RecipeName == RecipeNames.AdChicken);
+
+            }
+            if (model.BodyStatus == "Obese" || model.BodyStatus == "Overweight")
+            {
+                recommendedRecipes.RemoveAll(recipe => recipe.RecipeName == RecipeNames.SalmonTuna);
+            }
+            else
+            {
+                recommendedRecipes.RemoveAll(recipe => recipe.RecipeName == RecipeNames.Crocodile);
+            }
+
+            return recommendedRecipes;
+        }
         public async Task<double> GramsToConsume(QuestionnaireViewModel model, double caloriesPerGram)
         {
             double idealWeight = CalculateIdealWeight(model.BodyStatus, model.Weight);
@@ -107,5 +134,6 @@ namespace WildPaws.Core.Services
             return result;
         }
 
+   
     }
 }
