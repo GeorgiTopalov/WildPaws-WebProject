@@ -21,6 +21,9 @@ namespace WildPaws.Infrastructure.Data
             builder.Entity<UserPet>()
                 .HasKey(up => new { up.PetId, up.WildpawsUserId });
 
+            builder.Entity<RecipeIngredient>()
+                .HasKey(up => new { up.IngredientId, up.RecipeId });
+
             builder.Entity<Pet>()
                .HasOne(p => p.WildPawsUser)
                .WithMany(c => c.Pets)
@@ -35,6 +38,7 @@ namespace WildPaws.Infrastructure.Data
         public DbSet<Subscription> Subscriptions { get; set; }
         public DbSet<SubscriptionType> SubscriptionTypes { get; set; }
         public DbSet<UserPet> CustomerPets { get; set; }
+        public DbSet<RecipeIngredient> RecipeIngredients { get; set; }
 
     }
 }

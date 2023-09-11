@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using WildPaws.Infrastructure.Data;
 
@@ -11,9 +12,10 @@ using WildPaws.Infrastructure.Data;
 namespace WildPaws.Infrastructure.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20230911042111_SeedRecipes")]
+    partial class SeedRecipes
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -398,21 +400,6 @@ namespace WildPaws.Infrastructure.Migrations
                     b.ToTable("Recipes");
                 });
 
-            modelBuilder.Entity("WildPaws.Infrastructure.Data.RecipeIngredient", b =>
-                {
-                    b.Property<int>("IngredientId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("RecipeId")
-                        .HasColumnType("int");
-
-                    b.HasKey("IngredientId", "RecipeId");
-
-                    b.HasIndex("RecipeId");
-
-                    b.ToTable("RecipeIngredients");
-                });
-
             modelBuilder.Entity("WildPaws.Infrastructure.Data.Subscription", b =>
                 {
                     b.Property<Guid>("Id")
@@ -582,25 +569,6 @@ namespace WildPaws.Infrastructure.Migrations
                     b.HasOne("WildPaws.Infrastructure.Data.Subscription", null)
                         .WithMany("Recipes")
                         .HasForeignKey("SubscriptionId");
-                });
-
-            modelBuilder.Entity("WildPaws.Infrastructure.Data.RecipeIngredient", b =>
-                {
-                    b.HasOne("WildPaws.Infrastructure.Data.Ingredient", "Ingredient")
-                        .WithMany()
-                        .HasForeignKey("IngredientId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("WildPaws.Infrastructure.Data.Recipe", "Recipe")
-                        .WithMany()
-                        .HasForeignKey("RecipeId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Ingredient");
-
-                    b.Navigation("Recipe");
                 });
 
             modelBuilder.Entity("WildPaws.Infrastructure.Data.Subscription", b =>
