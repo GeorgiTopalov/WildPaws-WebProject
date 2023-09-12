@@ -11,7 +11,7 @@ namespace WildPaws.Infrastructure.Data
         [StringLength(50)]
         public string RecipeName { get; set; }
 
-        [StringLength(250)]
+        [StringLength(400)]
 
         public string Description { get; set; }
         public ICollection<Ingredient> Ingredients { get; set; }

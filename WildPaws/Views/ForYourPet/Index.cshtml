@@ -44,20 +44,20 @@
                     <div class="container-fluid pt-5">
                         <div class="container">
                             <div class="border-start border-5 border-primary ps-5 mb-5" style="max-width: 600px;">
-                                <h6 class="text-primary text-uppercase">Our plan for @Model.Name</h6>
+                                <h2 class="text-primary text-uppercase">Our plan for @Model.Name</h2>
                                 @if (ViewBag.RecipeNamesString != null)
                                 {
-                                   <span>@Html.Raw(ViewBag.RecipeNamesString)</span>
+                                    <span>@Html.Raw(ViewBag.RecipeNamesString)</span>
                                 }
                             </div>
                             <div class="ps-5 mb-5" style="max-width: 600px;">
-                                <h6 class="text-primary text-uppercase">Price per day here</h6>
+                                <h5 class="text-primary text-uppercase">Price per day here</h5>
                             </div>
                             <div class="row g-5">
                                 <div class="col-lg-9">
                                     <div class="col-lg-9">
                                         <div class="border-start border-5 border-dark ps-5 mb-5">
-                                            <p class="text-black mb-4">Based on your responses, we recomend these fresh, cooked and balanced recipes for @Model.Name. They're all made using high quality human grade ingredients and ideal for @Model.Name's nutritional needs.</p>
+                                            <p class="text-black mb-4">Based on your responses, we recomend these fresh and balanced recipes for @Model.Name. They're all made using high quality human grade ingredients and are ideal for @Model.Name's nutritional needs.</p>
                                         </div>
                                     </div>
                                     <form>
@@ -82,8 +82,75 @@
             </div>
         </div>
     </div>
+    <div class="container text-center my-5">
+        <h3>More about the recipes we've selected for @Model.Name</h3>
+    </div>
+    <div class="container-fluid pt-5">
+        <div class="container">
+            <div class="row">
 
+                <!-- Recipe 1 -->
+                <div class="col-lg-4">
+                    @if (ViewBag.Recipes != null)
+                    {
+                        var recipe1 = ViewBag.Recipes[0];
+                        <h4>@recipe1.RecipeName</h4>
+                        <p>@recipe1.Description</p>
+                        <p>Ingredients: 
+                        @foreach (var ingredient in recipe1.Ingredients)
+                        {
+                            @ingredient.Name
+                            @if (!ReferenceEquals(ingredient, recipe1.Ingredients.Last()))
+                            {
+                                <span>, </span>
+                            }
+                        }
+                    </p>
+                    }
+                </div>
 
+                <!-- Recipe 2 -->
+                <div class="col-lg-4">
+                    @if (ViewBag.Recipes != null)
+                    {
+                        var recipe2 = ViewBag.Recipes[1];
+                        <h4>@recipe2.RecipeName</h4>
+                        <p>@recipe2.Description</p>
+                         <p>Ingredients: 
+                        @foreach (var ingredient in recipe2.Ingredients)
+                        {
+                            @ingredient.Name
+                            @if (!ReferenceEquals(ingredient, recipe2.Ingredients.Last()))
+                            {
+                                <span>, </span>
+                            }
+                        }
+                    </p>
+                    }
+                </div>
+
+                <!-- Recipe 3 -->
+                <div class="col-lg-4">
+                    @if (ViewBag.Recipes != null)
+                    {
+                        var recipe3 = ViewBag.Recipes[2];
+                        <h4>@recipe3.RecipeName</h4>
+                        <p>@recipe3.Description</p>
+                        <p>Ingredients: 
+                        @foreach (var ingredient in recipe3.Ingredients)
+                        {
+                            @ingredient.Name
+                            @if (!ReferenceEquals(ingredient, recipe3.Ingredients.Last()))
+                            {
+                                <span>, </span>
+                            }
+                        }
+                    </p>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
 
 
 

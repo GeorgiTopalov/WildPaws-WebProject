@@ -1,4 +1,5 @@
-﻿using WildPaws.Core.Constants;
+﻿using Microsoft.EntityFrameworkCore;
+using WildPaws.Core.Constants;
 using WildPaws.Core.Contracts;
 using WildPaws.Core.Models;
 using WildPaws.Infrastructure.Data;
@@ -17,7 +18,9 @@ namespace WildPaws.Core.Services
         }
         public async Task<List<Recipe>> RecommendedRecipes(QuestionnaireViewModel model)
         {
-            var recommendedRecipes = repo.All<Recipe>().ToList();
+            var recommendedRecipes = await repo.All<Recipe>()
+                .Include(r=>r.Ingredients)
+                .ToListAsync();
 
             if (model.Age > 8)
             {
