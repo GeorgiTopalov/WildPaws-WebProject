@@ -14,6 +14,8 @@ namespace WildPaws.Infrastructure.Migrations
             migrationBuilder.Sql("INSERT INTO Recipes (RecipeName) VALUES ('Crocodile Fillet')");
             migrationBuilder.Sql("INSERT INTO Recipes (RecipeName) VALUES ('Chicken Breast')");
 
+            
+
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
