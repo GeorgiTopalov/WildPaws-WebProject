@@ -10,6 +10,6 @@ namespace WildPaws.Infrastructure.Data
         [Required]
         [StringLength(25)]
         public string Name { get; set; }
-        public ICollection<Recipe> Recipes { get; set; }
+        public List<Recipe> Recipes { get; set; }
     }
 }

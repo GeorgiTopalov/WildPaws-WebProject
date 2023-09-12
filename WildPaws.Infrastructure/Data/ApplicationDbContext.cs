@@ -21,6 +21,20 @@ namespace WildPaws.Infrastructure.Data
             builder.Entity<UserPet>()
                 .HasKey(up => new { up.PetId, up.WildpawsUserId });
 
+            builder.Entity<Recipe>()
+        .HasMany(r => r.Ingredients)
+        .WithMany(i => i.Recipes)
+        .UsingEntity<RecipeIngredient>(
+            j => j
+                .HasOne(ri => ri.Ingredient)
+                .WithMany()
+                .HasForeignKey(ri => ri.IngredientId),
+            j => j
+                .HasOne(ri => ri.Recipe)
+                .WithMany()
+                .HasForeignKey(ri => ri.RecipeId)
+        );
+
             builder.Entity<RecipeIngredient>()
                 .HasKey(up => new { up.IngredientId, up.RecipeId });
 
