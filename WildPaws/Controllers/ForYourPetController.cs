@@ -7,19 +7,26 @@ namespace WildPaws.Controllers
 {
     public class ForYourPetController : BaseController
     {
-        private readonly IQuestionnareService service;
+        private readonly IFormulaCalculationService service;
 
 
-        public ForYourPetController(IQuestionnareService service)
+        public ForYourPetController(IFormulaCalculationService service)
         {
             this.service = service;
         }
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
 
             if (Request.Cookies.TryGetValue("QuestionnaireData", out var questionnaireData))
             {
                 var model = JsonConvert.DeserializeObject<QuestionnaireViewModel>(questionnaireData);
+
+                var recommendedRecipes = await service.RecommendedRecipes(model);
+                ViewBag.Recipes = recommendedRecipes;
+
+                var recipeNamesString = string.Join(", ", recommendedRecipes.Select(recipe => recipe.RecipeName));
+                ViewBag.RecipeNamesString = recipeNamesString;
+
                 return View(model);
             }
 

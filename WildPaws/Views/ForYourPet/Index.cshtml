@@ -36,41 +36,44 @@
 </head>
 
 <body>
-     <div class="container-fluid pt-5">
+    <div class="container-fluid pt-5">
         <div class="container">
             <div class="row">
                 <!-- Content on the left side -->
                 <div class="col-lg-7">
-                     <div class="container-fluid pt-5">
-        <div class="container">
-            <div class="border-start border-5 border-primary ps-5 mb-5" style="max-width: 600px;">
-                <h6 class="text-primary text-uppercase">Our plan for @Model.Name</h6>
-                <p>insert recipes names here</p>
-            </div>
-            <div class="ps-5 mb-5" style="max-width: 600px;">
-                <h6 class="text-primary text-uppercase">Price per day here</h6>
-            </div>
-            <div class="row g-5">
-                <div class="col-lg-9">
-                    <div class="col-lg-9">
-                    <div class="border-start border-5 border-dark ps-5 mb-5">
-                    <p class="text-black mb-4">Based on your responses, we recomend these fresh, cooked and balanced recipes for @Model.Name. They're all made using high quality human grade ingredients and ideal for @Model.Name's nutritional needs.</p>
-                    </div>
-                </div>
-                    <form>
-                        <div class="row g-3">
-                            <div class="col-9">
-                                <button class="btn btn-primary w-100 py-3" type="submit">Continue with recommendation</button>
-                                <button class="btn btn-primary w-100 py-3" type="submit">or Select Your Own Plan</button>
+                    <div class="container-fluid pt-5">
+                        <div class="container">
+                            <div class="border-start border-5 border-primary ps-5 mb-5" style="max-width: 600px;">
+                                <h6 class="text-primary text-uppercase">Our plan for @Model.Name</h6>
+                                @if (ViewBag.RecipeNamesString != null)
+                                {
+                                   <span>@Html.Raw(ViewBag.RecipeNamesString)</span>
+                                }
+                            </div>
+                            <div class="ps-5 mb-5" style="max-width: 600px;">
+                                <h6 class="text-primary text-uppercase">Price per day here</h6>
+                            </div>
+                            <div class="row g-5">
+                                <div class="col-lg-9">
+                                    <div class="col-lg-9">
+                                        <div class="border-start border-5 border-dark ps-5 mb-5">
+                                            <p class="text-black mb-4">Based on your responses, we recomend these fresh, cooked and balanced recipes for @Model.Name. They're all made using high quality human grade ingredients and ideal for @Model.Name's nutritional needs.</p>
+                                        </div>
+                                    </div>
+                                    <form>
+                                        <div class="row g-3">
+                                            <div class="col-9">
+                                                <button class="btn btn-primary w-100 py-3" type="submit">Continue with recommendation</button>
+                                                <button class="btn btn-primary w-100 py-3" type="submit">or Select Your Own Plan</button>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
                             </div>
                         </div>
-                    </form>
+                    </div>
                 </div>
-            </div>
-        </div>
-    </div>
-                </div>
-                
+
                 <!-- Image on the right side -->
                 <div class="col-lg-5">
                     <!-- Add your image here -->
@@ -79,7 +82,7 @@
             </div>
         </div>
     </div>
-   
+
 
 
 
