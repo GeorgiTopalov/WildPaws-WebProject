@@ -83,71 +83,25 @@
         </div>
     </div>
     <div class="container text-center my-5">
-        <h3>More about the recipes we've selected for @Model.Name</h3>
+        <h3 class="text-primary text-uppercase">More about the recipes we've selected for @Model.Name</h3>
     </div>
     <div class="container-fluid pt-5">
         <div class="container">
             <div class="row">
-
-                <!-- Recipe 1 -->
-                <div class="col-lg-4">
-                    @if (ViewBag.Recipes != null)
+                @if (ViewBag.Recipes != null)
+                {
+                    @for (var i = 0; i < ViewBag.Recipes.Count; i++)
                     {
-                        var recipe1 = ViewBag.Recipes[0];
-                        <h4>@recipe1.RecipeName</h4>
-                        <p>@recipe1.Description</p>
-                        <p>Ingredients: 
-                        @foreach (var ingredient in recipe1.Ingredients)
-                        {
-                            @ingredient.Name
-                            @if (!ReferenceEquals(ingredient, recipe1.Ingredients.Last()))
-                            {
-                                <span>, </span>
-                            }
-                        }
-                    </p>
-                    }
-                </div>
+                        var recipe = ViewBag.Recipes[i];
+                        var ingredientNames = ViewBag.IngredientNamesList[i];
 
-                <!-- Recipe 2 -->
-                <div class="col-lg-4">
-                    @if (ViewBag.Recipes != null)
-                    {
-                        var recipe2 = ViewBag.Recipes[1];
-                        <h4>@recipe2.RecipeName</h4>
-                        <p>@recipe2.Description</p>
-                         <p>Ingredients: 
-                        @foreach (var ingredient in recipe2.Ingredients)
-                        {
-                            @ingredient.Name
-                            @if (!ReferenceEquals(ingredient, recipe2.Ingredients.Last()))
-                            {
-                                <span>, </span>
-                            }
-                        }
-                    </p>
+                        <div class="col-lg-4">
+                            <h4 class="text-center">@recipe.RecipeName</h4>
+                            <p>@recipe.Description</p>
+                            <p><b>Ingredients:</b> @ingredientNames</p>
+                        </div>
                     }
-                </div>
-
-                <!-- Recipe 3 -->
-                <div class="col-lg-4">
-                    @if (ViewBag.Recipes != null)
-                    {
-                        var recipe3 = ViewBag.Recipes[2];
-                        <h4>@recipe3.RecipeName</h4>
-                        <p>@recipe3.Description</p>
-                        <p>Ingredients: 
-                        @foreach (var ingredient in recipe3.Ingredients)
-                        {
-                            @ingredient.Name
-                            @if (!ReferenceEquals(ingredient, recipe3.Ingredients.Last()))
-                            {
-                                <span>, </span>
-                            }
-                        }
-                    </p>
-                    }
-                </div>
+                }
             </div>
         </div>
     </div>

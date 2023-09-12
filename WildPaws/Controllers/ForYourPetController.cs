@@ -27,6 +27,13 @@ namespace WildPaws.Controllers
                 var recipeNamesString = string.Join(", ", recommendedRecipes.Select(recipe => recipe.RecipeName));
                 ViewBag.RecipeNamesString = recipeNamesString;
 
+                var ingredientNamesList = new List<string>();
+                foreach (var recipe in recommendedRecipes)
+                {
+                    ingredientNamesList.Add(string.Join(", ", recipe.Ingredients.Select(ingredient => ingredient.Name)));
+                }
+                ViewBag.IngredientNamesList = ingredientNamesList;
+
                 return View(model);
             }
 
