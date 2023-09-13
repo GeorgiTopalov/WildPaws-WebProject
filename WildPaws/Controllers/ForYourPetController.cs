@@ -34,6 +34,11 @@ namespace WildPaws.Controllers
                 }
                 ViewBag.IngredientNamesList = ingredientNamesList;
 
+                var averageCalories = await service.CalculateAverageCalories(recommendedRecipes);
+                ViewBag.AverageCalories = averageCalories;
+
+
+
                 return View(model);
             }
 

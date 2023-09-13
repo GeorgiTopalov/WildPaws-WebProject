@@ -71,6 +71,44 @@ namespace WildPaws.Core.Services
             return subPrice;
         }
 
+        public async Task<double> CalculateAverageCalories(List<Recipe> recommendedRecipes)
+        {
+            double totalCalories = 0;
+
+            foreach (var recipe in recommendedRecipes)
+            {
+                double recipeCalories = 0;
+
+                foreach (var ingredient in recipe.Ingredients)
+                {
+                    switch (ingredient.Name)
+                    {
+                        case "ChickenDory":
+                            recipeCalories += FormulaCalories.ChickenDory;
+                            break;
+                        case "Salmon":
+                            recipeCalories += FormulaCalories.Salmon;
+                            break;
+                        case "Crocodile":
+                            recipeCalories += FormulaCalories.Crocodile;
+                            break;
+                        case "Beef":
+                            recipeCalories += FormulaCalories.Beef;
+                            break;
+                        case "Chicken":
+                            recipeCalories += FormulaCalories.Chicken;
+                            break;
+                    }
+                }
+
+                totalCalories += recipeCalories;
+            }
+
+            // Calculate the average grams to consume
+            double averageCalories = totalCalories / recommendedRecipes.Count;
+
+            return totalCalories;
+        }
         private double CalculateIdealWeight(string bodyStatus, double weight)
         {
 

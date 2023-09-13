@@ -9,5 +9,7 @@ namespace WildPaws.Core.Contracts
         public Task<double> PricePerDay(double gramsToConsume, SubscriptionType subscriptionType);
         public Task<double> SubscriptionPricce(double pricePerDay, SubscriptionType subscriptionType);
         public Task<List<Recipe>> RecommendedRecipes(QuestionnaireViewModel model);
+
+        public Task<double> CalculateAverageCalories(List<Recipe> recommendedRecipes)
     }
 }
