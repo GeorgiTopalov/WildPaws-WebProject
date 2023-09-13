@@ -57,16 +57,16 @@ namespace WildPaws.Core.Services
         }
 
 
-        public async Task<double> PricePerDay(double gramsToConsume, SubscriptionType subscriptionType)
+        public async Task<double> PricePerDay(double gramsToConsume)
         {
-            double pricePerDay = gramsToConsume * pricePerGram * subscriptionType.Discount;
+            double pricePerDay = gramsToConsume * pricePerGram;
 
-            return pricePerDay;
+            return Math.Round(pricePerDay, 2);
         }
 
         public async Task<double> SubscriptionPricce(double pricePerDay, SubscriptionType subscriptionType)
         {
-            double subPrice = pricePerDay * subscriptionType.DaysActive;
+            double subPrice = pricePerDay * subscriptionType.DaysActive * subscriptionType.Discount;
 
             return subPrice;
         }
@@ -79,27 +79,25 @@ namespace WildPaws.Core.Services
             {
                 double recipeCalories = 0;
 
-                foreach (var ingredient in recipe.Ingredients)
-                {
-                    switch (ingredient.Name)
+                    switch (recipe.RecipeName)
                     {
-                        case "ChickenDory":
+                        case "Chicken and Dory":
                             recipeCalories += FormulaCalories.ChickenDory;
                             break;
-                        case "Salmon":
+                        case "Salmon and Tuna":
                             recipeCalories += FormulaCalories.Salmon;
                             break;
-                        case "Crocodile":
+                        case "Crocodile Fillet":
                             recipeCalories += FormulaCalories.Crocodile;
                             break;
                         case "Beef":
                             recipeCalories += FormulaCalories.Beef;
                             break;
-                        case "Chicken":
+                        case "Chicken Breast":
                             recipeCalories += FormulaCalories.Chicken;
                             break;
                     }
-                }
+                
 
                 totalCalories += recipeCalories;
             }
@@ -107,7 +105,7 @@ namespace WildPaws.Core.Services
             // Calculate the average grams to consume
             double averageCalories = totalCalories / recommendedRecipes.Count;
 
-            return totalCalories;
+            return Math.Round(averageCalories, 2);
         }
         private double CalculateIdealWeight(string bodyStatus, double weight)
         {
@@ -171,9 +169,9 @@ namespace WildPaws.Core.Services
                     factor += 1.4;
                     break;
             }
-            double result = factor / 3;
+            double result = (factor / 3) * RER;
 
-            return result;
+            return Math.Round(result, 2);
         }
 
    

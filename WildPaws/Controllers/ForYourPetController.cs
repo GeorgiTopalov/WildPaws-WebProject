@@ -34,10 +34,15 @@ namespace WildPaws.Controllers
                 }
                 ViewBag.IngredientNamesList = ingredientNamesList;
 
+
                 var averageCalories = await service.CalculateAverageCalories(recommendedRecipes);
                 ViewBag.AverageCalories = averageCalories;
 
+                var gramsToConsume = await service.GramsToConsume(model, averageCalories);
+                ViewBag.GramsToConsume = gramsToConsume;
 
+                var pricePerDay = await service.PricePerDay(gramsToConsume);
+                ViewBag.PricePerDay = pricePerDay;
 
                 return View(model);
             }
