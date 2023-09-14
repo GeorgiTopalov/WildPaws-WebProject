@@ -19,7 +19,11 @@ namespace WildPaws.Controllers
 
         public async Task<IActionResult> Index()
         {
-            if (Request.Cookies.TryGetValue("QuestionnaireData", out var questionnaireData))
+
+            // if (Request.Cookies.TryGetValue("QuestionnaireData", out var questionnaireData))
+            var questionnaireData = TempData["QuestionnaireData"] as string;
+
+            if (!string.IsNullOrEmpty(questionnaireData))
             {
                 var model = JsonConvert.DeserializeObject<QuestionnaireViewModel>(questionnaireData);
                 var recommendedRecipes = await service.RecommendedRecipes(model);

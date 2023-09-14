@@ -33,10 +33,11 @@ namespace WildPaws.Controllers
             }
 
             var questionnaireData = JsonConvert.SerializeObject(model);
-            Response.Cookies.Append("QuestionnaireData", questionnaireData);
-
+            // Response.Cookies.Append("QuestionnaireData", questionnaireData);
+            TempData["QuestionnaireData"] = questionnaireData;
 
             return RedirectToAction("Index", "ForYourPet", new { id = model.Id });
+
         }
 
 
