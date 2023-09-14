@@ -2,12 +2,10 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
-using Microsoft.EntityFrameworkCore;
 using WildPaws.Core.Constants;
 using WildPaws.Core.Contracts;
 using WildPaws.Core.Models;
 using WildPaws.Infrastructure.Data.Identity;
-using static WildPaws.Core.Constants.UserConstants;
 
 namespace WildPaws.Areas.Admin.Controllers
 {

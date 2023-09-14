@@ -1,0 +1,126 @@
+﻿@using WildPaws.Core.Models
+@model QuestionnaireViewModel
+@{
+    ViewData["Title"] = "ForYourPet";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>@ViewData["Title"]</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="Free HTML Templates" name="keywords">
+    <meta content="Free HTML Templates" name="description">
+
+    <!-- Favicon -->
+    <link href="~/img/favicon.ico" rel="icon">
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&family=Roboto:wght@700&display=swap" rel="stylesheet">
+
+    <!-- Icon Font Stylesheet -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+    <link href="~/lib/flaticon/font/flaticon.css" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link href="~/lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="~/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Template Stylesheet -->
+    <link href="~/css/style.css" rel="stylesheet">
+</head>
+
+<body>
+    <div class="container-fluid pt-5">
+        <div class="container">
+            <div class="row">
+                <!-- Content on the left side -->
+                <div class="col-lg-7">
+                    <div class="container-fluid pt-5">
+                        <div class="container">
+                            <div class="border-start border-5 border-primary ps-5 mb-5" style="max-width: 600px;">
+                                <h2 class="text-primary text-uppercase">Our plan for @Model.Name</h2>
+                                @if (ViewBag.RecipeNamesString != null)
+                                {
+                                    <span>@Html.Raw(ViewBag.RecipeNamesString)</span>
+                                }
+                            </div>
+                            <div class="ps-5 mb-5" style="max-width: 600px;">
+                                <h5 class="text-primary text-uppercase">Only @ViewBag.PricePerDay THB per day</h5>
+                            </div>
+                            <div class="row g-5">
+                                <div class="col-lg-9">
+                                    <div class="col-lg-9">
+                                        <div class="border-start border-5 border-dark ps-5 mb-5">
+                                            <p class="text-black mb-4">Based on your responses, we recomend these fresh and balanced recipes for @Model.Name. They're all made using high quality human grade ingredients and are ideal for @Model.Name's nutritional needs.</p>
+                                        </div>
+                                    </div>
+                                    <form>
+                                        <div class="row g-3">
+                                            <div class="col-9">
+                                                <button class="btn btn-primary w-100 py-3" type="submit">Continue with recommendation</button>
+                                                <button class="btn btn-primary w-100 py-3" type="submit">or Select Your Own Plan</button>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Image on the right side -->
+                <div class="col-lg-5">
+                    <!-- Add your image here -->
+                    <img src="~/img/blog-1.jpg" alt="Your Image" class="img-fluid">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container text-center my-5">
+        <h3 class="text-primary text-uppercase">More about the recipes we've selected for @Model.Name</h3>
+    </div>
+    <div class="container-fluid pt-5">
+        <div class="container">
+            <div class="row">
+                @if (ViewBag.Recipes != null)
+                {
+                    @for (var i = 0; i < ViewBag.Recipes.Count; i++)
+                    {
+                        var recipe = ViewBag.Recipes[i];
+                        var ingredientNames = ViewBag.IngredientNamesList[i];
+
+                        <div class="col-lg-4">
+                            <h4 class="text-center">@recipe.RecipeName</h4>
+                            <p>@recipe.Description</p>
+                            <p><b>Ingredients:</b> @ingredientNames</p>
+                        </div>
+                    }
+                }
+            </div>
+        </div>
+    </div>
+
+
+
+    <!-- Back to Top -->
+    <a href="#" class="btn btn-primary py-3 fs-4 back-to-top"><i class="bi bi-arrow-up"></i></a>
+
+
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/lib/easing/easing.min.js"></script>
+    <script src="~/lib/waypoints/waypoints.min.js"></script>
+    <script src="~/lib/owlcarousel/owl.carousel.min.js"></script>
+
+    <!-- Template Javascript -->
+    <script src="~/js/main.js"></script>
+</body>
+
+</html>
