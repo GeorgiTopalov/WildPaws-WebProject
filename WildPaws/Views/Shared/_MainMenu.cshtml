@@ -1,24 +1,45 @@
 ﻿    <!-- Navbar Start -->
-<nav class="navbar navbar-expand-lg bg-white navbar-light shadow-sm py-3 py-lg-0 px-3 px-lg-0">
-    <a href="/" class="navbar-brand ms-lg-5">
-        <img src="~/img/Logo.jpg">
-    </a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
-        <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarCollapse">
-        <div class="navbar-nav ms-auto py-0">
-            <a href="/" class="nav-item nav-link">Home</a>
-            <a href="/about" class="nav-item nav-link">About Us</a>
-            <a href="/recipes" class="nav-item nav-link">Recipes</a>
-            <a href="/whyfresh" class="nav-item nav-link">Why Fresh?</a>
-            <a href="/contactus" class="nav-item nav-link">Contact Us</a>
-            <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">FAQ</a>
-            <partial name="_LoginPartial" />
+ <div class="top-background">
+        <a href="/questionnaire"
+          >Get 20% off on your first purchase!
+          <span class="call-to-action">REDEEM NOW</span></a
+        >
+      </div>
+      <header id="top">
+        <a href="/" class="logo">
+          <img src="./img/Logo.jpg" />
+        </a>
+          <a href="#" id="mainMenuOpen"
+            ><svg
+              class="hamburger"
+              xmlns="http://www.w3.org/2000/svg"
+              width="50"
+              height="50"
+              viewBox="0 0 25 25"
+              fill="none"
+            >
+              <path d="M4.5 7.5H25.5" stroke-width="3" stroke-linecap="round" />
+              <path d="M4.5 15H25.5" stroke-width="3" stroke-linecap="round" />
+              <path
+                d="M4.5 22.5H25.5"
+                stroke-width="3"
+                stroke-linecap="round"
+              /></svg
+          ></a>
+          <nav>
+            <ul>
+              <li><a href="/">Home</a></li>
+              <li><a href="/about">About Us</a></li>
+              <li><a href="/recipes">Recipes</a></li>
+              <li><a href="/whyfresh">Why Fresh?</a></li>
+              <li><a href="/contactus">Contact Us</a></li>
+              <li><a href="/FAQ">FAQ</a></li>
+              <partial name="_LoginPartial" />
+            </ul>
+          </nav>
+      </header>
+           
             @*<a class="nav-item nav-link nav-contact bg-primary text-white px-5 ms-lg-5">Login<i class="bi bi-arrow-right"></i></a>*@
-        </div>
-    </div>
-</nav>
 <!-- Navbar End -->
 
 
