@@ -185,7 +185,7 @@ nav a {
 
 .hero-img {
     flex: 1;
-    background: url("img/jamie-street-uNNCs5kL70Q-unsplash.jpg") fixed 50%;
+    background: url("/img/hero-optimized.jpg") fixed 50%;
     background-size: cover;
     /* background-position: center; */
     background-attachment: local;
@@ -197,7 +197,7 @@ nav a {
     flex: 1;
     display: flex;
     flex-direction: column;
-    color: white;
+    color: #ffffff;
     background-color: var(--primary-color);
     justify-content: center;
     align-items: flex-start;
