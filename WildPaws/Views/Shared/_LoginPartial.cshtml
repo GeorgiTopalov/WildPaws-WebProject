@@ -9,12 +9,12 @@
        @* <li class="nav-item">
             <a class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">Hello @User.Identity?.Name!</a>
         </li>*@
-            <li><form asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
-                <button class="nav-a" type="submit">Logout</button>
+            <li><form id="logoutForm" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
+                <a href="javascript:void(0);" class="btn-logout" role="button" onclick="document.getElementById('logoutForm').submit();">Logout</a>
             </form></li>
     }
     else
     {
-        <li><a asp-area="Identity" asp-page="/Account/Register">Register</a></li>
         <li><a asp-area="Identity" asp-page="/Account/Login">Login</a></li>
     }
+
