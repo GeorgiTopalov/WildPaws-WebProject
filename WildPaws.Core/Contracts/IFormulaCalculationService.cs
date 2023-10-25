@@ -5,11 +5,11 @@ namespace WildPaws.Core.Contracts
 {
     public interface IFormulaCalculationService
     {
-        public Task<double> GramsToConsume(QuestionnaireViewModel model, double caloriesPerGram);
-        public Task<double> PricePerDay(double gramsToConsume);
-        public Task<double> SubscriptionPricce(double pricePerDay, SubscriptionType subscriptionType);
+        public double GramsToConsume(QuestionnaireViewModel model, double caloriesPerGram);
+        public double PricePerDay(double gramsToConsume);
+        public double SubscriptionPricce(double pricePerDay, SubscriptionType subscriptionType);
         public Task<List<Recipe>> RecommendedRecipes(QuestionnaireViewModel model);
 
-        public Task<double> CalculateAverageCalories(List<Recipe> recommendedRecipes);
+        public double CalculateAverageCalories(List<Recipe> recommendedRecipes);
     }
 }

@@ -31,9 +31,9 @@ namespace WildPaws.Controllers
                 ViewBag.Recipes = recommendedRecipes;
                 ViewBag.RecipeNamesString =  GetRecipeNamesString(recommendedRecipes);
                 ViewBag.IngredientNamesList =  GetIngredientNamesList(recommendedRecipes);
-                ViewBag.AverageCalories = await service.CalculateAverageCalories(recommendedRecipes);
-                ViewBag.GramsToConsume = await service.GramsToConsume(model, ViewBag.AverageCalories);
-                ViewBag.PricePerDay = await service.PricePerDay(ViewBag.GramsToConsume);
+                ViewBag.AverageCalories =  service.CalculateAverageCalories(recommendedRecipes);
+                ViewBag.GramsToConsume =  service.GramsToConsume(model, ViewBag.AverageCalories);
+                ViewBag.PricePerDay =  service.PricePerDay(ViewBag.GramsToConsume);
 
                 return View(model);
             }
@@ -51,6 +51,16 @@ namespace WildPaws.Controllers
             return recipes.Select(recipe => string.Join(", ", recipe.Ingredients.Select(ingredient => ingredient.Name))).ToList();
         }
 
+        [HttpPost]
+        public async Task<IActionResult> SubmitForm(QuestionnaireViewModel model)
+        {
+            if (!ModelState.IsValid)
+            {
+                return View("index", model);
+            }
 
+            return RedirectToAction("Index", "FinalSteps", new { id = model.Id });
+
+        }
     }
 }

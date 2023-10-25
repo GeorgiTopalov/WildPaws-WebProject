@@ -43,7 +43,7 @@ namespace WildPaws.Core.Services
 
             return recommendedRecipes;
         }
-        public async Task<double> GramsToConsume(QuestionnaireViewModel model, double caloriesPerGram)
+        public double GramsToConsume(QuestionnaireViewModel model, double caloriesPerGram)
         {
             double idealWeight = CalculateIdealWeight(model.BodyStatus, model.Weight);
 
@@ -57,21 +57,21 @@ namespace WildPaws.Core.Services
         }
 
 
-        public async Task<double> PricePerDay(double gramsToConsume)
+        public double PricePerDay(double gramsToConsume)
         {
             double pricePerDay = gramsToConsume * pricePerGram;
 
             return Math.Round(pricePerDay, 2);
         }
 
-        public async Task<double> SubscriptionPricce(double pricePerDay, SubscriptionType subscriptionType)
+        public double SubscriptionPricce(double pricePerDay, SubscriptionType subscriptionType)
         {
             double subPrice = pricePerDay * subscriptionType.DaysActive * subscriptionType.Discount;
 
             return subPrice;
         }
 
-        public async Task<double> CalculateAverageCalories(List<Recipe> recommendedRecipes)
+        public double CalculateAverageCalories(List<Recipe> recommendedRecipes)
         {
             double totalCalories = 0;
 
