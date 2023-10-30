@@ -1,6 +1,0 @@
-﻿FROM mcr.microsoft.com/mssql/server:2022-latest AS build
-USER mssql
-WORKDIR /src
-COPY init.sh init.sh
-RUN chmod +x init.sh
-ENTRYPOINT ["./init.sh"]

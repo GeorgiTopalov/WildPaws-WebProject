@@ -9,7 +9,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WildPaws.Core", "WildPaws.C
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WildPaws.Infrastructure", "WildPaws.Infrastructure\WildPaws.Infrastructure.csproj", "{76D60A34-E219-4F61-AE6A-F92A3893B0EF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WildPaws.Test", "WildPaws.Test\WildPaws.Test.csproj", "{665AFB9B-5605-44AE-B8EC-1C37365070F1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WildPaws.Test", "WildPaws.Test\WildPaws.Test.csproj", "{665AFB9B-5605-44AE-B8EC-1C37365070F1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

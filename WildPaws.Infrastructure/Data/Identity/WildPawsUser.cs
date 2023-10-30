@@ -15,7 +15,9 @@ public class WildPawsUser : IdentityUser
 
     [Required]
     [EmailAddress]
+#pragma warning disable CS0114 // Member hides inherited member; missing override keyword
     public string Email { get; set; }
+#pragma warning restore CS0114 // Member hides inherited member; missing override keyword
 
     [StringLength(10)]
     public string? PhoneNumber { get; set; }
